@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HyperVision</title>
+  <style>
+    :root {
+      --bg: #0f0f0f;
+      --accent: #7a5cff;
+      --text: #ffffff;
+      --muted: #aaaaaa;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+    nav {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: rgba(15, 15, 15, 0.9);
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+    }
+    nav .logo {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: var(--accent);
+    }
+    nav ul {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.95rem;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: var(--accent);
+    }
+    header {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 2rem;
+      flex-direction: column;
+      background: radial-gradient(circle at top, #1a1a1a, #0f0f0f);
+    }
+    header h1, header p {
+      opacity: 0;
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      max-width: 900px;
+      line-height: 1.2;
+      color: var(--accent);
+      animation: zoomIn 1.2s ease-out forwards;
+      animation-delay: 0.5s;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      color: var(--muted);
+      margin-top: 1.5rem;
+      animation: slideLeftFade 1.5s ease-out forwards;
+      animation-delay: 1s;
+    }
+
+    .section {
+      padding: 6rem 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease-out;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section h2,
+    .section p {
+      opacity: 0;
+    }
+
+    .section h2.animate1 {
+      animation: rotateIn 1s forwards;
+    }
+
+    .section h2.animate2 {
+      animation: expandLetters 1s forwards;
+    }
+
+    .section p.animate3 {
+      animation: skewFadeIn 1.2s ease forwards;
+    }
+
+    .section p.animate4 {
+      animation: slideRightFade 1.2s ease forwards;
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      background: #0a0a0a;
+    }
+
+    @keyframes zoomIn {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes slideLeftFade {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes rotateIn {
+      from {
+        opacity: 0;
+        transform: rotate(-5deg) translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: rotate(0) translateY(0);
+      }
+    }
+
+    @keyframes expandLetters {
+      from {
+        opacity: 0;
+        letter-spacing: -0.3em;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        letter-spacing: normal;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes skewFadeIn {
+      from {
+        opacity: 0;
+        transform: skewX(10deg);
+      }
+      to {
+        opacity: 1;
+        transform: skewX(0deg);
+      }
+    }
+
+    @keyframes slideRightFade {
+      from {
+        opacity: 0;
+        transform: translateX(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+      .section h2 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">HyperVision</div>
+    <ul>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#recursos">Recursos</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1>Uma nova forma de pensar a tecnologia colaborativa</h1>
+    <p>Transformando ideias em experiências imersivas com uma arquitetura de design radical e performance confiável.</p>
+    <p>(ism4_07)</p>
+  </header>
+
+  <section id="sobre" class="section">
+    <h2 class="animate1">Sobre</h2>
+    <p class="animate3">Somos uma equipe de criadores apaixonados por inovação digital. Nossa missão é desenvolver soluções escaláveis, intuitivas e profundamente envolventes.</p>
+  </section>
+
+  <section id="recursos" class="section">
+    <h2 class="animate2">Recursos</h2>
+    <p class="animate4">Integração com IA, GPUs distribuídas, design modular e suporte contínuo. Criamos estruturas que evoluem junto com o seu projeto.</p>
+  </section>
+
+  <section id="contato" class="section">
+    <h2 class="animate1">Contato</h2>
+    <p class="animate3">Quer construir algo incrível? Entre em contato e vamos começar uma jornada de inovação juntos.</p>
+  </section>
+
+  <footer>
+    &copy; 2025 HyperVision. Todos os direitos reservados.
+  </footer>
+
+  <script>
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          const h2 = entry.target.querySelector('h2');
+          const p = entry.target.querySelector('p');
+          if (h2) h2.style.animationPlayState = 'running';
+          if (p) p.style.animationPlayState = 'running';
+        }
+      });
+    }, { threshold: 0.3 });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+
+</body>
+</html>
